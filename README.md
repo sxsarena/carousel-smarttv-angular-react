@@ -6,7 +6,7 @@
 ## Arquivos
 
 - **home_trail.json** é para popular seu index/home/whatever.
-- **pagination.json** é para fazer a paginação. 
+- **paginacao.json** é para fazer a paginação. 
 
 Abaixo segue um print do que é desejável nesse teste:
 
@@ -16,7 +16,7 @@ Abaixo segue um print do que é desejável nesse teste:
 
 - Cards um ao lado do outro (home_trail.json).
 - Ao utilizar as setas do teclado (left e right) a borda branca fica fixa e o carrossel se move.
-- Ao chegar no fim deste carrossel, deverá ser feito a paginação (pagination.json).
+- Ao chegar no fim deste carrossel, deverá ser feito a paginação (paginacao.json).
 
 
 ## Servidor local
