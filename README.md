@@ -10,7 +10,7 @@
 
 Abaixo segue um print do que é desejável nesse teste:
 
-[!Imagem](original/image.png)
+![Imagem](original/image.png)
 
 ## Instruções
 
