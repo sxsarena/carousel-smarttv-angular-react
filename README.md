@@ -27,6 +27,15 @@ Necessita do [Python 2.7.*](https://www.python.org/downloads/) instalado
 python -m SimpleHTTPServer
 ```
 
+## Instalação
+
+Necessita do [Node.js](https://nodejs.org/) instalado
+
+```bash
+npm install
+```
+
+
 ## License
 
 [MIT license](http://hemersonvianna.mit-license.org/) © Hemerson Vianna
