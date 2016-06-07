@@ -1,0 +1,15 @@
+default:
+  - 'clean'
+  - 'copy'
+  - 'sass'
+#  - 'autoprefixer'
+  - 'cmq'
+  - 'cssmin'
+#  - 'jshint'
+  - 'uglify'
+
+dev:
+  - 'sass'
+  - 'cmq'
+  - 'cssmin'
+  - 'uglify'
