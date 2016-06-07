@@ -8,6 +8,7 @@ module.exports = function(grunt, options){
       files: [
         '<%= projectDev %>/scss/{,*/, **/, **/**/*,**/*}*.{scss,sass}',
         '<%= projectDev %>/js/{,*/,**/}*.js',
+        '<%= projectDev %>/js/{,*/,**/}*.jsx',
         '<%= projectDir %>/css/{,*/, **/}*.css'
       ],
       tasks: ['dev']

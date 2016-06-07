@@ -5,6 +5,7 @@ default:
 #  - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
+  - 'browserify'
 #  - 'jshint'
   - 'uglify'
 
@@ -12,4 +13,5 @@ dev:
   - 'sass'
   - 'cmq'
   - 'cssmin'
+  - 'browserify'
   - 'uglify'
