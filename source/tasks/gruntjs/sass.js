@@ -16,7 +16,7 @@ module.exports = function(grunt, options){
         cwd: '<%= projectDev %>/scss/',
         src: ['*.scss'],
         dest: '<%= projectDir %>/css/',
-        ext: '.css'
+        ext: '.min.css'
       }]
     }
   };

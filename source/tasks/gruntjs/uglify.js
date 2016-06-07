@@ -14,6 +14,9 @@ module.exports = function(grunt, options){
       files: {
         '<%= projectDir %>/js/scripts.min.js':
         [
+          '<%= projectNode %>/react/dist/react.min.js',
+          '<%= projectNode %>/react-dom/dist/react-dom.min.js',
+          '<%= projectNode %>/react/dist/react-with-addons.min.js',
           '<%= projectNode %>/jquery/dist/jquery.min.js',
           '<%= projectDev %>/js/scripts.js'
         ]
