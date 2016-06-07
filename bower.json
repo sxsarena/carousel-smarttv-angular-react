@@ -1,0 +1,7 @@
+{
+  "name": "marmiteria",
+  "version": "1.0.0",
+  "dependencies": {
+    "prime-itcss": "https://github.com/prime-solutions/prime-itcss.git"
+  }
+}
