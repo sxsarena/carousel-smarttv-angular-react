@@ -1,7 +1,7 @@
 'use strict';
 
-import React from 'react'
-import ReactWithAddons from 'react-addons'
-import ReactDOM from 'react-dom'
+global.React = require('react');
+global.ReactWithAddons = require('react-addons');
+global.ReactDOM = require('react-dom');
 
 global.$  = require('jquery');
