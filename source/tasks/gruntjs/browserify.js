@@ -18,7 +18,7 @@ module.exports = function(grunt, options){
       },
       src: [
         '<%= projectDev %>/js/config.js',
-        '<%= projectDev %>/js/scripts.jsx'
+        '<%= projectDev %>/js/components/carousels.jsx'
       ],
       dest: '<%= projectDir %>/js/scripts.js'
     }

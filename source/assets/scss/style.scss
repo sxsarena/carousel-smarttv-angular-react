@@ -21,4 +21,45 @@
 //@import "09-trumps/_grid";
 //@import "09-trumps/_print";
 
-li { list-style: none; float: left; }
+body {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+
+.row {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.category {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.list {
+  @include x-clearfix;
+  width: 200%;
+}
+
+.item {
+  background: #000;
+  display: inline-block;
+  float: left;
+  list-style: none;
+  margin-left: 10px;
+
+  &:first-child { margin-left: 0; }
+}
+
+.image { opacity: 0.4; }
+
+.item:hover .image { opacity: 1; }
