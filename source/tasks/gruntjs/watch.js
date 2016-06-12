@@ -5,10 +5,12 @@ module.exports = function(grunt, options){
 
   return {
     site: {
+      options: {
+        livereload: true
+      },
       files: [
         '<%= projectDev %>/scss/{,*/, **/, **/**/*,**/*}*.{scss,sass}',
-        '<%= projectDev %>/js/{,*/,**/}*.js',
-        '<%= projectDev %>/js/{,*/,**/}*.jsx',
+        '<%= projectDev %>/js/{,*/,**/}*.{js, jsx}',
         '<%= projectDir %>/css/{,*/, **/}*.css'
       ],
       tasks: ['dev']

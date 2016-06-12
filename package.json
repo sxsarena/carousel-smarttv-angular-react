@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "preinstall": "npm install -g bower grunt-cli",
-    "postinstall": "bower install && grunt"
+    "postinstall": "bower install && grunt",
+    "start": "grunt server",
+    "test": "grunt test"
   },
   "dependencies": {
     "react": "^15.1.0",
@@ -21,6 +23,7 @@
     "grunt-browserify": "^4.0.1",
     "grunt-combine-media-queries": "~1.0.0",
     "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-cssmin": "^0.12.2",
     "grunt-contrib-htmlmin": "^0.6.0",

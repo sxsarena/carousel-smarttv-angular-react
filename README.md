@@ -18,15 +18,6 @@ Abaixo segue um print do que é desejável nesse teste:
 - Ao utilizar as setas do teclado (left e right) a borda branca fica fixa e o carrossel se move.
 - Ao chegar no fim deste carrossel, deverá ser feito a paginação (paginacao.json).
 
-
-## Servidor local
-
-Necessita do [Python 2.7.*](https://www.python.org/downloads/) instalado
-
-```bash
-python -m SimpleHTTPServer
-```
-
 ## Instalação
 
 Necessita do [Node.js](https://nodejs.org/) instalado
@@ -34,6 +25,27 @@ Necessita do [Node.js](https://nodejs.org/) instalado
 ```bash
 npm install
 ```
+
+## Servidor local
+
+## GruntJS
+
+Automaticamente irá abrir o navegador com o endereço: `http://localhost:8000/`
+
+```bash
+npm start
+```
+
+### Python
+
+Necessita do [Python 2.7.*](https://www.python.org/downloads/) instalado
+Acessar o endereço `http://localhost:8000/` no navegador
+
+```bash
+python -m SimpleHTTPServer
+```
+
+
 
 
 ## License

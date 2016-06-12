@@ -16,5 +16,9 @@ dev:
   - 'browserify'
   - 'uglify'
 
+server:
+  - connect
+  - watch
+
 test:
   - karma
