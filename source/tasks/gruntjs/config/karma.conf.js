@@ -1,28 +1,31 @@
 module.exports = function(config, options){
 
   config.set({
-    // base path, that will be used to resolve files and exclude
     basePath:  '',
-    // frameworks to use
-    frameworks: ['jasmine'],
-    // list of files / patterns to load in the browser
+    frameworks: ['browserify', 'jasmine'],
     files: [
-      '../../../../node_modules/react/dist/react-with-addons.min.js',
+      '../../../../node_modules/babel-polyfill/dist/polyfill.js',
       '../../../assets/js/components/*.jsx',
       '../../../assets/js/tests/*.jsx'
     ],
     preprocessors: {
-      '../../../../node_modules/react/dist/react-with-addons.min.js': ["babel"],
-      '../../../assets/js/components/*.jsx': ["babel"],
-      '../../../assets/js/tests/*.jsx': ["babel"]
+      '../../../assets/js/components/*.jsx': ['babel', 'browserify'],
+      '../../../assets/js/tests/*.jsx': ['babel', 'browserify']
     },
     babelPreprocessor: {
       options: {
-        presets: ['es2015', 'react', 'stage-0'],
-        compact : true
+        presets: ['es2015', 'stage-0', 'react']
       }
     },
-    // list of files to exclude
+    browserify: {
+      debug: true,
+      transform: [['babelify', {presets: ['es2015', 'stage-0', 'react']}]],
+      configure: function(bundle) {
+        bundle.on('prebundle', function() {
+          bundle.external('../../../../node_modules/react/dist/react-with-addons.js');
+        });
+      }
+    },
     exclude: [
     ],
     // test results reporter to use
