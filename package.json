@@ -6,10 +6,14 @@
     "preinstall": "npm install -g bower grunt-cli",
     "postinstall": "bower install && grunt"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "grunt": ">=0.4.5",
@@ -24,9 +28,6 @@
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-sass": "^1.0.0",
-    "jquery": "latest",
-    "load-grunt-config": "^0.19.1",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "load-grunt-config": "^0.19.1"
   }
 }
