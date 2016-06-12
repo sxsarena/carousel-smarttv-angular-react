@@ -45,8 +45,11 @@ Acessar o endereço `http://localhost:8000/` no navegador
 python -m SimpleHTTPServer
 ```
 
+## Testes
 
-
+```bash
+npm test
+```
 
 ## License
 

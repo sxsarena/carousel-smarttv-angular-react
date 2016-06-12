@@ -6,7 +6,7 @@ default:
   - 'cmq'
   - 'cssmin'
   - 'browserify'
-#  - 'jshint'
+  - 'jshint'
   - 'uglify'
 
 dev:

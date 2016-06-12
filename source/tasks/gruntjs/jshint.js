@@ -4,7 +4,7 @@ module.exports = function(grunt, options){
 
   return {
     options: {
-        jshintrc: 'source/tasks/config/.jshintrc'
+        jshintrc: './source/tasks/gruntjs/config/.jshintrc'
     },
     site: ['<%= projectDev %>/js/{,*/,**/}*.js']
   };
