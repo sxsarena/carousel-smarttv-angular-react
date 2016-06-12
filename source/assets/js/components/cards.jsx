@@ -11,6 +11,10 @@ export default class Cards extends Component {
     this.state = {};
   }
 
+  /**
+   * Render method of the component
+   * @return {string} Component JSX
+   */
   render = () => {
     return (
       <li className="item" tabindex="-1" key={this.props.id}>
