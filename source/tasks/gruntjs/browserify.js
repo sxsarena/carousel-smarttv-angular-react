@@ -9,16 +9,13 @@ module.exports = function(grunt, options){
       options: {
         alias: {
           'react': './node_modules/react/dist/react.js',
-          'react-dom': './node_modules/react-dom/dist/react-dom.js',
-          'react-addons': './node_modules/react/dist/react-with-addons.js',
-          'jquery': './node_modules/jquery/dist/jquery.js'
+          'react-dom': './node_modules/react-dom/dist/react-dom.js'
         },
         debug: false,
-        transform: [['babelify', {presets: ['es2015', 'react']}]]
+        transform: [['babelify', {presets: ['es2015', 'stage-0', 'react']}]]
       },
       src: [
-        '<%= projectDev %>/js/config.js',
-        '<%= projectDev %>/js/components/carousels.jsx'
+        '<%= projectDev %>/js/main.jsx'
       ],
       dest: '<%= projectDir %>/js/scripts.js'
     }

@@ -27,9 +27,14 @@ body {
 }
 
 .row {
+  margin-top: 20px;
+
+  &:first-child { margin-top: 0; }
+}
+
+.box {
   overflow: hidden;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .category {
