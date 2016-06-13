@@ -3,6 +3,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
+import MakeRequest from '../utils/request.js';
+
 import Cards from './cards.jsx';
 
 export default class CarouselItem extends Component {
@@ -11,14 +13,17 @@ export default class CarouselItem extends Component {
     super(props);
 
     this.state = {
-      _focus: 0
+      data: [],
+      _current: 0,
+      _amount: this.props.list.length,
+      _list: this.props.list
     };
 
     this._generateCard  = this._generateCard.bind(this);
     this._handleKeyDown = this._handleKeyDown.bind(this);
     this._moveTo        = this._moveTo.bind(this);
-    this._setFocus      = this._setFocus.bind(this);
-    this._removeFocus   = this._removeFocus.bind(this);
+    this._setActive     = this._setActive.bind(this);
+    this._removeActive  = this._removeActive.bind(this);
   }
 
   componentDidMount = () => {
@@ -26,8 +31,10 @@ export default class CarouselItem extends Component {
   }
 
   _generateCard = (item) =>{
+    let image = item.image_tv || item.media.card_image;
+
     return (
-      <Cards image={item.image_tv} id={item.id} />
+      <Cards image={image} id={item.id} />
     );
   }
 
@@ -45,7 +52,7 @@ export default class CarouselItem extends Component {
 
   _moveTo = (option) => {
     let to        = option;
-    let goToIndex = this.state._focus;
+    let goToIndex = this.state._current;
 
     if (to === 'right') {
       goToIndex++;
@@ -53,15 +60,35 @@ export default class CarouselItem extends Component {
       goToIndex--;
     }
 
-    this._setFocus(goToIndex);
+    this._setActive(goToIndex);
   }
 
-  _setFocus = (index) => {
-    this._removeFocus();
-    this.state._focus = index;
+  _setActive = (index) => {
+    let me = this;
+    let amount = this.state._amount - 1;
+
+    if( this.state._current <= amount && this.state._current >= 0 ){
+      this._removeActive();
+      this.state._current = index;
+    }
+
+    if ( this.state._current === amount ){
+      // CHECK THE CONDITION
+      MakeRequest('/dist/api/pagination.json', function(data) {
+        data.results.forEach(function(obj){
+          me.state._list.push(obj);
+        });
+
+        me.state._amount = me.state._list.length;
+
+        me.forceUpdate();
+      });
+
+    }
+
   }
 
-  _removeFocus = () => {
+  _removeActive = () => {
 
   }
 
@@ -70,7 +97,7 @@ export default class CarouselItem extends Component {
    * @return {string} Component JSX
    */
   render = () => {
-    let list = this.props.list.map(this._generateCard);
+    let list = this.state._list.map(this._generateCard);
     return (
       <div className="row" key={this.props.index}>
         <h3 className="category">{this.props.title}</h3>
