@@ -1,13 +1,25 @@
 {
   "name": "desafioss",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Challenge React.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemersonvianna/desafioss.git"
+  },
+  "main": "source/js/app.js",
   "scripts": {
     "preinstall": "npm install -g bower grunt-cli",
     "postinstall": "bower install && grunt",
-    "start": "grunt server",
+    "start": "grunt",
+    "start:dev": "webpack-dev-server --inline --port 8000 --hot --history-api-fallback --content-base public",
     "test": "grunt test"
   },
+  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hemersonvianna/desafioss/issues"
+  },
+  "homepage": "https://github.com/hemersonvianna/desafioss#readme",
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
@@ -15,9 +27,12 @@
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
@@ -46,6 +61,8 @@
     "karma-story-reporter": "^0.3.1",
     "load-grunt-config": "^0.19.1",
     "phantomjs-prebuilt": "^2.1.7",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
