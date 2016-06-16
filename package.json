@@ -6,13 +6,18 @@
     "type": "git",
     "url": "git+https://github.com/hemersonvianna/desafioss.git"
   },
-  "main": "source/js/app.js",
+  "main": "source/assets/js/app.js",
   "scripts": {
     "preinstall": "npm install -g bower grunt-cli",
     "postinstall": "bower install && grunt",
     "start": "grunt",
-    "start:dev": "webpack-dev-server --inline --port 8000 --hot --history-api-fallback --content-base public",
-    "test": "grunt test"
+    "start:dev": "NODE_ENV=development webpack-dev-server --inline --port 8000 --hot --history-api-fallback --content-base public",
+    "test": "npm run lint && grunt test",
+    "clean": "rm -rf public",
+    "lint": "grunt lint",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint",
+    "build": "NODE_ENV=production grunt"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",
