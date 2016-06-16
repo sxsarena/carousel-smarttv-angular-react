@@ -15,7 +15,7 @@ module.exports = function(grunt, options){
         transform: [['babelify', {presets: ['es2015', 'stage-0', 'react']}]]
       },
       src: [
-        '<%= projectDev %>/js/main.jsx'
+        '<%= projectDev %>/js/app.js'
       ],
       dest: '<%= projectDir %>/js/scripts.js'
     }

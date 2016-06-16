@@ -5,16 +5,18 @@ default:
 #  - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
-  - 'browserify'
-  - 'jshint'
-  - 'uglify'
+  # - 'browserify'
+  # - 'jshint'
+  # - 'uglify'
+  - htmlmin
 
 dev:
   - 'sass'
   - 'cmq'
   - 'cssmin'
-  - 'browserify'
-  - 'uglify'
+  # - 'browserify'
+  # - 'uglify'
+  - htmlmin
 
 server:
   - connect

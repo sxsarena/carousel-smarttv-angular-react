@@ -74,7 +74,7 @@ export default class CarouselItem extends Component {
 
     if ( this.state._current === amount ){
       // CHECK THE CONDITION
-      MakeRequest('/dist/api/pagination.json', function(data) {
+      MakeRequest('/api/pagination.json', function(data) {
         data.results.forEach(function(obj){
           me.state._list.push(obj);
         });
