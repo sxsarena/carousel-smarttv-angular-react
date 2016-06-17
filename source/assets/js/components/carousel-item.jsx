@@ -1,13 +1,16 @@
-'use strict';
-
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 import MakeRequest from '../utils/request.js';
 
 import Cards from './cards.jsx';
 
 export default class CarouselItem extends Component {
+
+  static propTypes = {
+    index: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    list: PropTypes.array.isRequired
+  }
 
   constructor(props) {
     super(props);
@@ -26,11 +29,11 @@ export default class CarouselItem extends Component {
     this._removeActive  = this._removeActive.bind(this);
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     document.getElementById('list-0').focus();
   }
 
-  _generateCard = (item) =>{
+  _generateCard(item) {
     let image = item.image_tv || item.media.card_image;
 
     return (
@@ -50,7 +53,7 @@ export default class CarouselItem extends Component {
     }
   }
 
-  _moveTo = (option) => {
+  _moveTo(option) {
     let to        = option;
     let goToIndex = this.state._current;
 
@@ -63,13 +66,15 @@ export default class CarouselItem extends Component {
     this._setActive(goToIndex);
   }
 
-  _setActive = (index) => {
+  _setActive(index) {
     let me = this;
     let amount = this.state._amount - 1;
 
     if( this.state._current <= amount && this.state._current >= 0 ){
       this._removeActive();
-      this.state._current = index;
+      this.setState({
+        _current: index
+      });
     }
 
     if ( this.state._current === amount ){
@@ -88,7 +93,7 @@ export default class CarouselItem extends Component {
 
   }
 
-  _removeActive = () => {
+  _removeActive() {
 
   }
 
@@ -96,13 +101,13 @@ export default class CarouselItem extends Component {
    * Render method of the component
    * @return {string} Component JSX
    */
-  render = () => {
+  render() {
     let list = this.state._list.map(this._generateCard);
     return (
       <div className="row" key={this.props.index}>
         <h3 className="category">{this.props.title}</h3>
         <div className="box">
-          <ul className="list" id={"list-"+this.props.index} contentEditable onKeyDown={this._handleKeyDown} tabindex={this.props.index}>
+          <ul className="list" id={"list-"+this.props.index} contentEditable onKeyDown={this._handleKeyDown} tabIndex={this.props.index}>
           {list}
           </ul>
         </div>

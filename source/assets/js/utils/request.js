@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Request to the json type using XMLHttpRequest
  *
