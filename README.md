@@ -1,4 +1,4 @@
-# Desafio Storm Security
+# Desafio com React.js
 
 [![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
 [![issues](https://img.shields.io/github/issues/hemersonvianna/desafioss.svg?style=flat-square)](https://github.com/hemersonvianna/desafioss/issues)
@@ -26,23 +26,12 @@ Necessita do [Node.js](https://nodejs.org/) instalado
 npm install
 ```
 
-## Servidor local
+## Visualizar
 
-## GruntJS
-
-Automaticamente irá abrir o navegador com o endereço: `http://localhost:8000/`
-
-```bash
-npm start
-```
-
-### Python
-
-Necessita do [Python 2.7.*](https://www.python.org/downloads/) instalado
 Acessar o endereço `http://localhost:8000/` no navegador
 
 ```bash
-python -m SimpleHTTPServer
+npm run build:dev
 ```
 
 ## Testes
