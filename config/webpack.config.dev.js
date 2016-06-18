@@ -4,9 +4,10 @@ var autoprefixer = require('autoprefixer');
 
 // App files location
 var PATHS = {
-  app: path.resolve(__dirname, './source/assets/js'),
-  styles: path.resolve(__dirname, './source/assets/scss'),
-  build: path.resolve(__dirname, './public')
+  app: path.resolve(__dirname, '../source/assets/js'),
+  styles: path.resolve(__dirname, '../source/assets/scss'),
+  html: path.resolve(__dirname, '../source/assets/html'),
+  build: path.resolve(__dirname, '../public')
 };
 
 var plugins = [
@@ -29,8 +30,7 @@ var sassLoaders = [
 module.exports = {
   env : process.env.NODE_ENV,
   entry: {
-    app: path.resolve(PATHS.app, 'app.js'),
-    vendor: ['react']
+    app: path.resolve(PATHS.app, 'app.js')
   },
   output: {
     path: PATHS.build,
@@ -58,16 +58,25 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: sassLoaders.join('!')
+        loader: sassLoaders.join('!'),
+        include: PATHS.style
       },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader!postcss-loader'
       },
+      {
+        test: /\.html$/,
+        loader: "html-loader"
+      },
       // Inline base64 URLs for <=8k images, direct URLs for the rest
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader?limit=8192'
+      },
+      {
+        test: /\.(eot|ttf|wav|mp3)$/,
+        loader: 'file-loader'
       }
     ]
   },
@@ -78,7 +87,7 @@ module.exports = {
     })];
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './public'),
+    contentBase: path.resolve(__dirname, PATHS.build),
     port: 8000,
     historyApiFallback: true
   },

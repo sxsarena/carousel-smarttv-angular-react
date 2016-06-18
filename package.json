@@ -1,7 +1,7 @@
 {
   "name": "desafioss",
   "version": "0.0.1",
-  "description": "Challenge React.js",
+  "description": "Component of Carousel for TV with React.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hemersonvianna/desafioss.git"
@@ -16,7 +16,7 @@
     "lint": "eslint config source/assets/js/** --ext .js",
     "precommit": "npm run lint",
     "prepush": "npm run lint",
-    "build:dev": "set NODE_ENV=development && webpack-dev-server --config ./config/webpack.config.js --hot --inline --progress",
+    "build:dev": "set NODE_ENV=development && webpack-dev-server --config ./config/webpack.config.dev.js --hot --inline --progress",
     "build": "set NODE_ENV=production && grunt"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
@@ -46,6 +46,7 @@
     "css-loader": "^0.23.1",
     "eslint": "^2.12.0",
     "eslint-plugin-react": "^5.2.1",
+    "file-loader": "^0.8.5",
     "grunt": ">=0.4.5",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-browserify": "^4.0.1",
@@ -61,6 +62,7 @@
     "grunt-eslint": "^18.1.0",
     "grunt-karma": "^2.0.0",
     "grunt-sass": "^1.0.0",
+    "html-loader": "^0.4.3",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-babel-preprocessor": "^6.0.1",
