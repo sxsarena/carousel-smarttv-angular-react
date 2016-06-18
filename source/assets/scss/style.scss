@@ -33,7 +33,9 @@ body {
 }
 
 .box {
+  height: 200px;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
@@ -52,7 +54,9 @@ body {
 
 .list {
   @include x-clearfix;
-  width: 200%;
+  height: 200px;
+  position: absolute;
+  width: 100%;
 }
 
 .item {

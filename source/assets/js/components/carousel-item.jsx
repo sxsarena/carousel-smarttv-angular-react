@@ -73,18 +73,26 @@ export default class CarouselItem extends Component {
   _setActive(index) {
     let me = this;
     let amount = this.state._amount - 1;
+    let amountItens = document.getElementById('list-'+this.props.index).querySelectorAll('.item').length;
+    let size = document.querySelector('.item').offsetWidth;
 
     if( this.state._current <= amount && this.state._current >= 0 ){
       this._removeActive();
 
       document.querySelectorAll('.item')[index].className += ' on';
 
+      // COMEÇO GAMBIARRA ### TRATAR
+      document.getElementById('list-'+this.props.index).style.width = (amountItens * 10) + (amountItens * size)+'px';
+      document.getElementById('list-'+this.props.index).style.left = - ((size + 10) * index+1) +'px';
+      // FIM GAMBIARRA ### TRATAR
+
       this.setState({
         _current: index
       });
     }
 
-    if ( this.state._current === amount ){
+    // COMEÇO GAMBIARRA ### TRATAR
+    if ( this.state._current+2 === amount ){
       // CHECK THE CONDITION
       MakeRequest('/api/pagination.json', function(data) {
         data.results.forEach(function(obj){
@@ -95,8 +103,8 @@ export default class CarouselItem extends Component {
 
         me.forceUpdate();
       });
-
     }
+    // FIM GAMBIARRA ### TRATAR
 
   }
 
@@ -125,7 +133,7 @@ export default class CarouselItem extends Component {
       <div className="row" key={this.props.index}>
         <h3 className="category">{this.props.title}</h3>
         <div className="box">
-          <ul className="list" id={"list-"+this.props.index} contentEditable onKeyDown={this._handleKeyDown} tabIndex={this.props.index}>
+          <ul className="list" id={"list-"+this.props.index} onKeyDown={this._handleKeyDown} tabIndex={this.props.index}>
           {list}
           </ul>
         </div>
