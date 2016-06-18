@@ -29,11 +29,12 @@ export default class CarouselItem extends Component {
     this._removeActive  = this._removeActive.bind(this);
   }
 
-  componentDidMount() {}
-
-  componentDidUpdate(){
-    document.getElementById('list-0').focus();
-    document.getElementById('list-0').querySelectorAll('.item')[0].className += ' on';
+  componentDidMount() {
+    if(this.props.index === 0){
+      console.log(dom);
+      document.getElementById('list-0').focus();
+      document.getElementById('list-0').querySelectorAll('.item')[0].className += ' on';
+    }
   }
 
   _generateCard(item) {
