@@ -40,6 +40,6 @@ npm run build:dev
 npm test
 ```
 
-## License
+## Licença
 
 [MIT license](http://hemersonvianna.mit-license.org/) © Hemerson Vianna

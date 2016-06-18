@@ -16,8 +16,8 @@
     "lint": "eslint config source/assets/js/** --ext .js",
     "precommit": "npm run lint",
     "prepush": "npm run lint",
-    "build:dev": "NODE_ENV=development && webpack-dev-server --inline --port 8000 --hot --history-api-fallback --content-base public",
-    "build": "NODE_ENV=production && grunt"
+    "build:dev": "set NODE_ENV=development && webpack-dev-server --config ./config/webpack.config.js --hot --inline --progress",
+    "build": "set NODE_ENV=production && grunt"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",
@@ -42,6 +42,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
+    "colors": "^1.1.2",
+    "css-loader": "^0.23.1",
     "eslint": "^2.12.0",
     "eslint-plugin-react": "^5.2.1",
     "grunt": ">=0.4.5",
@@ -69,7 +71,12 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-story-reporter": "^0.3.1",
     "load-grunt-config": "^0.19.1",
+    "node-sass": "^3.8.0",
     "phantomjs-prebuilt": "^2.1.7",
+    "postcss-loader": "^0.9.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "watchify": "^3.7.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
