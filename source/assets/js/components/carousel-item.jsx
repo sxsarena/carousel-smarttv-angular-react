@@ -30,10 +30,10 @@ export default class CarouselItem extends Component {
   }
 
   componentDidMount() {
-    if(this.props.index === 0){
-      console.log(dom);
-      document.getElementById('list-0').focus();
-      document.getElementById('list-0').querySelectorAll('.item')[0].className += ' on';
+    let index = this.props.index;
+    if(index === 0){
+      document.getElementById('list-'+index).focus();
+      document.getElementById('list-'+index).querySelectorAll('.item')[0].className += ' on';
     }
   }
 
@@ -76,6 +76,9 @@ export default class CarouselItem extends Component {
 
     if( this.state._current <= amount && this.state._current >= 0 ){
       this._removeActive();
+
+      document.querySelectorAll('.item')[index].className += ' on';
+
       this.setState({
         _current: index
       });
@@ -98,7 +101,18 @@ export default class CarouselItem extends Component {
   }
 
   _removeActive() {
+    let elements = document.querySelectorAll('.item');
+    let className = 'on';
+    let el;
 
+    for (var i = 0, len = elements.length; i < len; i++) {
+      el = elements[i];
+
+      if (el.classList)
+        el.classList.remove(className);
+      else
+        el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
   }
 
   /**
