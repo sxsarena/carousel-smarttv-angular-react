@@ -19,7 +19,8 @@ export default class CarouselItem extends Component {
       data: [],
       _current: 0,
       _amount: this.props.list.length,
-      _list: this.props.list
+      _list: this.props.list,
+      nada: 0
     };
 
     this._generateCard  = this._generateCard.bind(this);
@@ -70,13 +71,14 @@ export default class CarouselItem extends Component {
     this._setActive(goToIndex);
   }
 
-  _setActive(index) {
-    let me = this;
-    let amount = this.state._amount - 1;
+  _selected(index, amount){
     let amountItens = document.getElementById('list-'+this.props.index).querySelectorAll('.item').length;
     let size = document.querySelector('.item').offsetWidth;
 
-    if( this.state._current <= amount && this.state._current >= 0 ){
+    console.log(index);
+    console.log(this.state._current);
+
+    if( this.state._current < amount && this.state._current >= 0 ){
       this._removeActive();
 
       document.querySelectorAll('.item')[index].className += ' on';
@@ -86,25 +88,50 @@ export default class CarouselItem extends Component {
       document.getElementById('list-'+this.props.index).style.left = - ((size + 10) * index+1) +'px';
       // FIM GAMBIARRA ### TRATAR
 
-      this.setState({
-        _current: index
-      });
     }
+  }
+
+  _pagination(amount){
+    let me = this;
 
     // COMEÇO GAMBIARRA ### TRATAR
-    if ( this.state._current+2 === amount ){
+    if ( this.state._current === amount-3 ){
       // CHECK THE CONDITION
       MakeRequest('/api/pagination.json', function(data) {
         data.results.forEach(function(obj){
           me.state._list.push(obj);
         });
 
-        me.state._amount = me.state._list.length;
-
+        me.setState({
+          _amount: me.state._list.length
+        });
         me.forceUpdate();
       });
     }
     // FIM GAMBIARRA ### TRATAR
+  }
+
+  _verifyIndex(index, amount){
+
+    if(index < 0 ){
+      index = 0;
+    } else if (index > amount){
+      index = amount
+    }
+
+    return index;
+  }
+
+  _setActive(index) {
+    let me = this;
+    let amount = this.state._amount;
+
+    this.setState({
+      _current: this._verifyIndex(index)
+    }, function () {
+      me._selected(me._verifyIndex(index), amount);
+      me._pagination(amount);
+    });
 
   }
 
