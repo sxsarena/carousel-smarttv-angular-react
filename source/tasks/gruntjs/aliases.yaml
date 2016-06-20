@@ -5,18 +5,16 @@ default:
 #  - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
-  # - 'browserify'
-  # - 'jshint'
-  # - 'uglify'
+  # - 'eslint'
   - htmlmin
+  - webpack
 
 dev:
   - 'sass'
   - 'cmq'
   - 'cssmin'
-  # - 'browserify'
-  # - 'uglify'
   - htmlmin
+  - webpack-dev-server
 
 server:
   - connect
