@@ -17,7 +17,8 @@
     "precommit": "npm run lint",
     "prepush": "npm run lint",
     "build:dev": "set NODE_ENV=development && webpack-dev-server --config ./config/webpack.config.dev.js --hot --inline --progress",
-    "build": "set NODE_ENV=production && grunt"
+    "build": "set NODE_ENV=production && grunt",
+    "doc": "esdoc -c esdoc.json"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",
@@ -43,6 +44,7 @@
     "babelify": "^7.3.0",
     "colors": "^1.1.2",
     "css-loader": "^0.23.1",
+    "esdoc": "^0.4.7",
     "eslint": "^2.12.0",
     "eslint-plugin-react": "^5.2.1",
     "file-loader": "^0.8.5",
