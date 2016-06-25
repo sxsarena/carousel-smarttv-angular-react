@@ -18,7 +18,9 @@ var plugins = [
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false
-    }
+    },
+    comments: false,
+    sourceMap: false
   })
 ];
 
@@ -54,5 +56,5 @@ module.exports = {
     ]
   },
   plugins: plugins,
-  devtool: 'source-map'
+  devtool: 'eval'
 };
