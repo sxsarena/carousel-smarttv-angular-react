@@ -1,0 +1,5 @@
+public/*
+node_modules/*
+tests/*
+*.config.dev.js
+*.config.prod.js
