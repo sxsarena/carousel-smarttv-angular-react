@@ -1,58 +1,47 @@
+var webpackConfig = require('./config/webpack.config.dev');
+
+webpackConfig.module.loaders = [
+  {
+    test: /\.(js|jsx)$/, exclude: /(node_modules)/,
+    loader: 'babel-loader'
+  }
+];
+
+webpackConfig.module.postLoaders = [{
+  test: /\.(js|jsx)$/, exclude: /(node_modules|source\/assets\/js\/tests)/,
+  loader: 'istanbul-instrumenter'
+}];
+
 module.exports = function(config, options){
 
   config.set({
     basePath:  '',
-    frameworks: ['browserify', 'jasmine'],
+    frameworks: ['mocha', 'chai'],
     files: [
-      '../../../../node_modules/babel-polyfill/dist/polyfill.js',
-      '../../../assets/js/components/*.jsx',
-      '../../../assets/js/tests/*.jsx'
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      './source/assets/js/tests/*.spec.js'
     ],
     preprocessors: {
-      '../../../assets/js/components/*.jsx': ['babel', 'browserify'],
-      '../../../assets/js/tests/*.jsx': ['babel', 'browserify']
+      './source/assets/js/tests/*.spec.js': ['webpack']
     },
-    babelPreprocessor: {
-      options: {
-        presets: ['es2015', 'stage-0', 'react']
-      }
-    },
-    browserify: {
-      debug: true,
-      transform: [['babelify', {presets: ['es2015', 'stage-0', 'react']}]],
-      configure: function(bundle) {
-        bundle.on('prebundle', function() {
-          bundle.external('../../../../node_modules/react/dist/react-with-addons.js');
-        });
-      }
-    },
+    plugins: [
+      "karma-chai",
+      "karma-mocha",
+      "karma-phantomjs-launcher",
+      "karma-mocha-reporter",
+      "karma-webpack"
+    ],
+    webpack: webpackConfig,
+    webpackMiddleware: { noInfo: true },
     exclude: [
     ],
-    // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
-    // web server port
+    reporters: [ 'mocha' ],
     port: 9876,
-    // enable / disable colors in the output (reporters and logs)
     colors: true,
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_DEBUG,
-    // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera (has to be installed with `npm install karma-opera-launcher`)
-    // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
-    // - PhantomJS
-    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
     browsers: ['PhantomJS'],
-    // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
-    // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
     singleRun: false
   });
 };

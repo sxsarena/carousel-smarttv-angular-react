@@ -4,7 +4,7 @@ module.exports = function(grunt, options){
 
   return {
     test: {
-      configFile: '../../../karma.conf.js',
+      configFile: './karma.conf.js',
       singleRun: continuousIntegrationMode,
       reporters: continuousIntegrationMode ? ['teamcity'] : ['progress']
     }

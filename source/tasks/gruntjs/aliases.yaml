@@ -5,20 +5,21 @@ default:
 #  - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
-  # - 'eslint'
-  - htmlmin
-  - webpack
+  - 'eslint'
+  - 'htmlmin'
+  - 'webpack'
 
 dev:
   - 'sass'
   - 'cmq'
   - 'cssmin'
-  - htmlmin
+  - 'htmlmin'
+  - 'eslint'
   - webpack-dev-server
 
 server:
-  - connect
-  - watch
+  - 'connect'
+  - 'watch'
 
 test:
-  - karma
+  - 'karma'
