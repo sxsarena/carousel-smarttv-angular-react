@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
+/**
+ * Cards class.
+ */
 export default class Cards extends Component {
 
   static propTypes = {

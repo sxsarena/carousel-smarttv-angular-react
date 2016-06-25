@@ -4,6 +4,9 @@ import MakeRequest from '../utils/request.js';
 
 import Cards from './cards.jsx';
 
+/**
+ * CarouselItem class.
+ */
 export default class CarouselItem extends Component {
 
   static propTypes = {

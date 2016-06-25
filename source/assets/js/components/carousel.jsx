@@ -3,6 +3,9 @@ import React, { Component, PropTypes } from 'react';
 import MakeRequest from '../utils/request.js';
 import CarouselItem from './carousel-item.jsx';
 
+/**
+ * Carousel class.
+ */
 export default class Carousel extends Component {
 
   static propTypes = {
