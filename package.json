@@ -1,10 +1,10 @@
 {
-  "name": "desafioss",
+  "name": "carousel-smarttv",
   "version": "0.0.2",
   "description": "Component of Carousel for TV with React.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hemersonvianna/desafioss.git"
+    "url": "git+https://github.com/sxsarena/carousel-smarttv-angular-react.git"
   },
   "keywords": [
     "react",
@@ -27,12 +27,12 @@
     "build": "set NODE_ENV=production && grunt",
     "doc": "esdoc -c esdoc.json"
   },
-  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
+  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (https://nerdcalistenico.com.br)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hemersonvianna/desafioss/issues"
+    "url": "https://github.com/sxsarena/carousel-smarttv-angular-react/issues"
   },
-  "homepage": "https://github.com/hemersonvianna/desafioss#readme",
+  "homepage": "https://github.com/sxsarena/carousel-smarttv-angular-react#readme",
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
